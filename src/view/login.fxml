@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controller.LoginController"
+      alignment="CENTER" spacing="15"
+      style="-fx-padding: 40; -fx-background-color: #1A5276;">
+
+    <Label text="🏥 Hôpital — Connexion"
+           style="-fx-text-fill: white; -fx-font-size: 22; -fx-font-weight: bold;"/>
+
+    <TextField fx:id="txtUsername" promptText="Nom d'utilisateur"
+               style="-fx-font-size: 14; -fx-padding: 8;" prefWidth="280"/>
+
+    <PasswordField fx:id="txtPassword" promptText="Mot de passe"
+                   style="-fx-font-size: 14; -fx-padding: 8;" prefWidth="280"/>
+
+    <Button text="Se connecter" onAction="#handleLogin"
+            style="-fx-background-color: #27AE60; -fx-text-fill: white;
+                   -fx-font-size: 14; -fx-padding: 10 30;" prefWidth="280"/>
+
+    <Label fx:id="lblError" style="-fx-text-fill: #E74C3C; -fx-font-size: 13;"/>
+
+</VBox>
