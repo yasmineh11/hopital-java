@@ -4,37 +4,32 @@
 <?import javafx.geometry.Insets?>
 
 <BorderPane xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="controller.AdminController"
-            stylesheets="@../../resources/hopital-light.css">
+            fx:controller="controller.MedecinController"
+            stylesheets="@/resources/hopital-light.css">
 
-    <!-- ══════════════════════════════════
-         SIDEBAR
-    ══════════════════════════════════ -->
     <left>
         <VBox styleClass="sidebar" prefWidth="215">
 
             <VBox styleClass="sidebar-header">
                 <Label text="🏥  HôpitalApp" styleClass="sidebar-logo"/>
-                <Label text="ESPACE ADMINISTRATEUR" styleClass="sidebar-role"/>
+                <Label text="ESPACE MÉDECIN" styleClass="sidebar-role"/>
             </VBox>
 
             <VBox styleClass="sidebar-nav" VBox.vgrow="ALWAYS">
                 <Label text="PRINCIPAL" styleClass="nav-section-label"/>
-                <Button fx:id="btnDash"     text="  Tableau de bord"
+                <Button fx:id="btnDash"    text="  Tableau de bord"
                         onAction="#showDashboard"
                         prefWidth="199" styleClass="nav-btn"/>
 
-                <Label text="GESTION" styleClass="nav-section-label"/>
-                <Button fx:id="btnMedecins" text="  Médecins"
-                        onAction="#showMedecins"
+                <Label text="MÉDICAL" styleClass="nav-section-label"/>
+                <Button fx:id="btnRdv"     text="  Rendez-vous du jour"
+                        onAction="#showRendezVous"
                         prefWidth="199" styleClass="nav-btn"/>
-                <Button fx:id="btnUsers"    text="  Utilisateurs"
-                        onAction="#showUtilisateurs"
+                <Button fx:id="btnConsult" text="  Nouvelle consultation"
+                        onAction="#showConsultation"
                         prefWidth="199" styleClass="nav-btn"/>
-
-                <Label text="RAPPORTS" styleClass="nav-section-label"/>
-                <Button fx:id="btnStats"    text="  Statistiques"
-                        onAction="#showStats"
+                <Button fx:id="btnHisto"   text="  Historique patient"
+                        onAction="#showHistorique"
                         prefWidth="199" styleClass="nav-btn"/>
 
                 <Button text="  Déconnexion"
@@ -44,10 +39,10 @@
 
             <VBox styleClass="sidebar-footer">
                 <HBox styleClass="user-pill" alignment="CENTER_LEFT" spacing="10">
-                    <Label fx:id="lblAvatar"   text="AD" styleClass="user-avatar"/>
+                    <Label fx:id="lblAvatar"   text="MD" styleClass="user-avatar"/>
                     <VBox>
-                        <Label fx:id="lblUsername" text="admin"  styleClass="user-name"/>
-                        <Label text="Administrateur" styleClass="user-role-label"/>
+                        <Label fx:id="lblUsername" text="medecin" styleClass="user-name"/>
+                        <Label text="Médecin" styleClass="user-role-label"/>
                     </VBox>
                 </HBox>
             </VBox>
@@ -55,9 +50,6 @@
         </VBox>
     </left>
 
-    <!-- ══════════════════════════════════
-         ZONE CENTRALE
-    ══════════════════════════════════ -->
     <center>
         <VBox styleClass="main-area">
 
@@ -65,17 +57,11 @@
                 <VBox HBox.hgrow="ALWAYS">
                     <Label fx:id="lblPageTitle" text="Tableau de bord"
                            styleClass="page-title"/>
-                    <Label fx:id="lblPageSub"   text="Vue générale du système"
+                    <Label fx:id="lblPageSub"   text="Bienvenue"
                            styleClass="page-subtitle"/>
                 </VBox>
-                <TextField fx:id="tfSearch" promptText="Rechercher..."
-                           styleClass="search-field" prefWidth="190"/>
-                <Button fx:id="btnPrimary" text="+ Ajouter"
-                        onAction="#handlePrimaryAction"
-                        styleClass="btn-primary"/>
                 <Button fx:id="btnTheme" text="🌙"
                         onAction="#toggleTheme" styleClass="btn-theme"/>
-
             </HBox>
 
             <StackPane fx:id="centerPane"
